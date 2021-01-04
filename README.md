@@ -6,4 +6,4 @@
 
 4) Open terminal on mac and type "cd candyshop"
 
-5) Type "ruby init.rb" on command prompt and hit enter.
+5) Type "ruby init.rb" on termianl and hit enter.
