@@ -29,12 +29,7 @@ def add_candy(candy_name)
   end
 
     # Makes candies in that shelf unshelved
-    # by adding the candies to array of unshelved candies
-    # and changing the value of shelved variable in 
-    # each candy to false.
-    # Finally deletes the shelf
-
-  def remove_shelf(shelf_id)
+   def remove_shelf(shelf_id)
     index = get_shelf_index(shelf_id)
     @shelf_list[index].candy_list.each{|candy| candy.set_candy_display(false)}
     @shelf_list.delete_at(index)
