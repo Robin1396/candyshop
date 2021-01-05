@@ -1,3 +1,5 @@
+load 'candy.rb'
+load 'shelf.rb'
 
 attr_reader :candy_list , :shelf_list
 
