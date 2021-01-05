@@ -4,12 +4,12 @@ load 'shelf.rb'
 
 class Shop
   attr_accessor :shelf_list, :candy_list
-
+  #Constructs the object with array of shelves and candies
   def initialize
     @shelf_list = Array.new
     @candy_list = Array.new
   end
-
+  #Creates new candy object
   def add_candy(candy_name)
     if !@candy_list.any?{|candy| candy.candy_name.casecmp?(candy_name)}
       new_candy = Candy.new(candy_name)
@@ -18,7 +18,7 @@ class Shop
     else puts "Candy already exists"
     end
   end
-
+  # Creates new shelf object
   def add_shelf
     index = get_next_shelf_index
     new_shelf = Shelf.new(index)
@@ -28,7 +28,7 @@ class Shop
   def get_shelf_index(shelf_id)
     @shelf_list.find_index{|shelf| shelf.shelf_id == shelf_id}
   end
-
+  # Makes candy shelf unshelved
   def remove_shelf(shelf_id)
     index = get_shelf_index(shelf_id)
     @shelf_list[index].candy_list.each{|candy| candy.set_candy_display(false)}
@@ -46,7 +46,7 @@ class Shop
     else return (@shelf_list.last.shelf_id + 1)
     end
   end
-
+  # Displayes list of shelves
   def list_displayed_shelves
     @shelf_list.each{|shelf|
       if shelf.is_displayed == true
@@ -68,7 +68,7 @@ class Shop
     }
     puts
   end
-
+  # Displays list of unshelved candies
   def print_unshelved_candies
     @candy_list.each{|candy|
       if candy.is_shelved == false
@@ -77,7 +77,7 @@ class Shop
     }
     puts
   end
-
+  # Print the total number of candies
   def print_all_candies
     @candy_list.each{|candy|
       puts candy.candy_name
