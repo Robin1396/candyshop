@@ -1,15 +1,16 @@
+
 load 'candy.rb'
 load 'shelf.rb'
 
 attr_reader :candy_list , :shelf_list
 
-#Construct the array of shelf and candy. 
+#Construct the array of shelf and candy.
 def initialize
     @candy_list = []
     @shelf_list = []
 end
 
- # Creates new candy object and adds it @candy_list 
+ # Creates new candy object and adds it @candy_list
 def add_candy(candy_name)
     if !@candy_list.any?{|candy| candy.candy_name.casecmp?(candy_name)}
       new_candy = Candy.new(candy_name)
@@ -24,7 +25,7 @@ def add_candy(candy_name)
     index = get_next_shelf_index
     new_shelf = Shelf.new(index)
     @shelf_list.push(new_shelf)
-  end 
+  end
 
   def get_shelf_index(shelf_id)
     @shelf_list.find_index{|shelf| shelf.shelf_id == shelf_id}
@@ -88,5 +89,3 @@ def count_shelves
     }
     puts
   end
-
-end
