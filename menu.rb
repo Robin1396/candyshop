@@ -12,7 +12,7 @@ class Menu
       puts "Welcome to the shop. There are #{shop.count_shelves} shelves.\nSelect an option:\n1: Add candy\n2: Add shelf\n3: Edit shelf\n4: Remove shelf\n5: View all candies\n6: View shelved candies\n7: Exit"
 
       option = gets.chomp
-
+      # User menu with options to choose from
       case option
       when "1"
         add_shop_candy(shop)
@@ -60,7 +60,7 @@ class Menu
       run_shelf_menu(is_running, shelf, shop)
     end
   end
-
+  # Adds a candy to the shop
   def add_shop_candy(shop)
     puts "Enter candy name:"
     candy_name = gets.chomp
@@ -84,7 +84,7 @@ class Menu
     else puts "There are no shelves."
     end
   end
-
+  # Removes shelf from shop
   def remove_shop_shelf(shop)
     if !shop.shelf_list.empty?
       puts "Which shelf would you like to remove?"
@@ -101,7 +101,7 @@ class Menu
     else puts "There are no shelves."
     end
   end
-
+  # Moves a candy to a shelf
   def shelve_candy(shop, shelf)
     if !shop.candy_list.empty?
       puts "These candies haven't been shelved:"
@@ -116,7 +116,7 @@ class Menu
     else puts "There are no candies to shelve"
     end
   end
-
+  # Removes a candy from shelf
   def unshelve_candy(shop, shelf)
     if !shelf.candy_list.empty?
       puts "Which candy would you like to unshelve?"
